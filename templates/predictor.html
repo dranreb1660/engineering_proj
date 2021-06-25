@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Prediction Page</title>
+  <style>
+      body{
+          align-items: center;
+      }
+  </style>
+</head>
+
+<body>
+  <form action="/manual-predict">
+
+    {% for f in feature_names %}
+        <br>
+        {{ f }}
+        <br>
+        <input type="text" name="{{ f }}" value="{{x_input[loop.index0]}}">
+    {% endfor %}
+    <br>
+    <input type="submit" value="Submit" method="get">
+
+
+
+  </form>
+
+  <p>
+    prediction:
+    
+      <br> player is expected to score: {{ predicted }} 
+
+  </p>
+
+</body>
+
+</html>

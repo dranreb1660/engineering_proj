@@ -57,7 +57,6 @@ def auto_prediction(full_name, round_):
 
     return answer
 
-
     # This section checks that the prediction code runs properly
     # To run, type "python predictor_api.py" in the terminal.
     #

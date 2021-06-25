@@ -28,7 +28,6 @@ def auto():
     round_ = request.args.get('round_')
 
     all_full_names, all_round = get_inputs()
-    print(all_full_names)
     answer = auto_prediction(full_name=full_name, round_=round_)
     return flask.render_template('auto.html',
                                  answer=answer,

@@ -2,6 +2,7 @@ import flask
 from flask import request
 from numpy import round_
 from fpl_api import manual_prediction, auto_prediction, get_inputs, feature_names
+import os
 
 # Initialize the app
 app = flask.Flask(__name__)
@@ -38,3 +39,8 @@ def auto():
 
 # For local development:
 app.run(debug=True)
+
+# Heroku will set the port environment variable for
+port = os.environ.get("PORT", 5000)
+# set debug to false before deployment
+app.run(debug=False, host="0.0.0.0", port=port)

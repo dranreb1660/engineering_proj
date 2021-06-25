@@ -38,7 +38,7 @@ def auto():
 
 
 # For local development:
-app.run(debug=True)
+# app.run(debug=True)
 
 # Heroku will set the port environment variable for
 port = os.environ.get("PORT", 5000)

@@ -46,27 +46,32 @@
     
 
     <ul>
-        <li><a href="">Home</a></li>
+        <li><a href="home">Home</a></li>
         <li><a class="active" href="manual-predict">Manual Predict</a></li>
         <li><a href="auto-predict">Auto Predict</a></li>
         <li><a href="#about">About</a></li>
     </ul>
 
-    <div class = main >
-    <form action="/manual-predict">
+    <div class = "main" >
+        <h3>
+            Manual Prediction.
+        </h3>
+        <p>Insert the stats of the player you want to predict for in the folowing gameweek</p>
 
-        {% for f in feature_names %}
+        <form action="/manual-predict">
+
+            {% for f in feature_names %}
+                <br>
+                {{ f }}
+                <br>
+                <input type="text" name="{{ f }}" value="{{x_input[loop.index0]}}">
+            {% endfor %}
             <br>
-            {{ f }}
-            <br>
-            <input type="text" name="{{ f }}" value="{{x_input[loop.index0]}}">
-        {% endfor %}
-        <br>
-        <input type="submit" value="Submit" method="get">
+            <input type="submit" value="Submit" method="get">
 
 
 
-    </form>
+        </form>
 
     <p>
         prediction:

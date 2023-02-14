@@ -3,7 +3,12 @@ sudo: required
 services:
   - docker
 
+before_install:
+  - docker build --tag phade160/fpl_app 
+
+script:
+  docker run phade160/fpl_app 
+
 after_success:
-  - docker build --tag phade160/fpl_app .
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID"  --password-stdin
   - docker push

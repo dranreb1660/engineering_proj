@@ -33,28 +33,10 @@ def get_names_and_weeks():
     names = pd.read_sql(names_query, con=conn).values.flatten()
     rounds = pd.read_sql(rounds_query, con=conn).values.flatten()+1
 
-    # print(names)
-    # print(rounds)
-
-
     return jsonify(
         {'names': list(names), 'rounds':[str(round_) for round_ in rounds]})
 
 
-# @app.route("/auto-predict", methods=["POST", "GET"])
-# def auto():
-
-#     name = request.args.get('name')
-#     round_ = request.args.get('round_')
-
-#     names, rounds = get_inputs()
-#     pred = predict(name=name, round_=round_)
-#     return flask.render_template('auto.html',
-#                                  answer=pred,
-
-#                                  names=names,
-#                                  rounds=rounds,
-#                                  )
 
 @app.route("/auto_predict", methods=["POST"])
 def auto_predict():

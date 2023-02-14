@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://0.0.0.0:5100";
+const BASE_URL = "http://localhost:5100";
 
 export const fetchInputs = async () => {
   const { data } = await axios.get(`${BASE_URL}/get_inputs`);

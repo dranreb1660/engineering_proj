@@ -9,7 +9,7 @@ COPY ./fpl_engineering ./fpl_engineering
 COPY ./artifacts ./artifacts
 COPY ./models ./models
 COPY ./server.py .
-COPY ./fpl_api.py .
+COPY ./api_logic.py .
 COPY ./.env .
 
 ENTRYPOINT [ "python3" ]

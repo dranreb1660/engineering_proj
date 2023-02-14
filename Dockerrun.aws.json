@@ -1,0 +1,27 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "app",
+      "image": "phade160/fpl_app",
+      "hostname": "app",
+      "essential": false,
+      "portMappings": [
+        {
+          "hostPort": 5100,
+          "containerPort": 5110
+        }
+      ],
+      "links": ["database"],
+      "memory": 500
+    },
+
+    {
+      "name": "database",
+      "image": "postgres",
+      "hostname": "app",
+      "essential": true,
+      "memory": 300
+    }
+  ]
+}

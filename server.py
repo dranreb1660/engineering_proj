@@ -2,14 +2,14 @@ import flask
 from flask import Flask, request, jsonify
 import psycopg2
 from api_logic import predict, get_inputs, conn_string
-# from flask_cors import CORS
+from flask_cors import CORS
 import pandas as pd
 import os
 
 
 # Initialize the app
 app = Flask(__name__)
-# cors = CORS(app)
+cors = CORS(app)
 
 
 @app.route("/home")

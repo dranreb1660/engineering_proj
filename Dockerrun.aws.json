@@ -28,7 +28,14 @@
         }
       ],
       "links": ["database"],
-      "memory": 800
+      "memory": 800,
+      "environment": [
+        { "name": "POSTGRES_HOST", "value": "database" },
+        { "name": "POSTGRES_USER", "value": "docker " },
+        { "name": "POSTGRES_PASSWORD", "value": "docker" },
+        { "name": "POSTGRES_DB ", "value": "fantasydb" },
+        { "name": "POSTGRES_PORT", "value": "5432" }
+      ]
     },
 
     {

@@ -2,26 +2,47 @@
   "AWSEBDockerrunVersion": 2,
   "containerDefinitions": [
     {
-      "name": "app",
-      "image": "phade160/fpl_app",
-      "hostname": "app",
+      "name": "client",
+      "image": "phade160/fpl_client",
+      "hostname": "client",
+      "essential": false,
+      "portMappings": [
+        {
+          "hostPort": 3000,
+          "containerPort": 3000
+        }
+      ],
+      "links": ["server"],
+      "memory": 500
+    },
+
+    {
+      "name": "server",
+      "image": "phade160/fpl_server",
+      "hostname": "server",
       "essential": false,
       "portMappings": [
         {
           "hostPort": 5100,
-          "containerPort": 5110
+          "containerPort": 5100
         }
       ],
       "links": ["database"],
-      "memory": 500
+      "memory": 800
     },
 
     {
       "name": "database",
       "image": "postgres",
-      "hostname": "app",
+      "hostname": "database",
       "essential": true,
-      "memory": 300
+      "memory": 500,
+      "portMappings": [
+        {
+          "hostPort": 5432,
+          "containerPort": 5432
+        }
+      ]
     }
   ]
 }

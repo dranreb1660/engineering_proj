@@ -4,7 +4,7 @@ services:
   - docker
 
 before_install:
-  - docker build -t phade160/fpl_server .
+  - docker build -t phade160/fpl_server . #todo use $dockerid instead when everything is validated and working
   - docker build -t phade160/fpl_client ./frontend
 
 # script: docker run
@@ -19,3 +19,16 @@ after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID"  --password-stdin
   - docker push phade160/fpl_server
   - docker push phade160/fpl_client
+
+deploy:
+  provider: elasticbeanstalk
+  region: us-east-1
+  app: bern-ai-app
+  env: Bernaiapp-env
+  bucket_name: elasticbeanstalk-us-east-1-852996433714
+  bucket_path: bern-ai-app
+  on:
+    branch: main
+
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY

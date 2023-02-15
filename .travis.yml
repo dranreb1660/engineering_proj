@@ -17,4 +17,5 @@ before_install:
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID"  --password-stdin
-  - docker push phade160/fpl_app
+  - docker push phade160/fpl_server
+  - docker push phade160/fpl_client

@@ -10,7 +10,7 @@ COPY ./artifacts ./artifacts
 COPY ./models ./models
 COPY ./server.py .
 COPY ./api_logic.py .
-COPY ./.env .
+# COPY ./.env .
 
 ENTRYPOINT [ "python3" ]
 

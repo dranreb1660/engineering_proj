@@ -4,7 +4,8 @@ services:
   - docker
 
 before_install:
-  - docker build -t phade160/fpl_app .
+  - docker build -t phade160/fpl_server .
+  - docker build -t phade160/fpl_client ./frontend
 
 # script: docker run
 #   -e "POSTGRES_HOST=$POSTGRES_HOST"
